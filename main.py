@@ -128,8 +128,6 @@ def task2b():
     print("Alice's message decrypted by mallory: " + alicedecrypted.decode('utf-8'))
 
 
-task2b()
-
 def moduinverse(e, Qn):
     k = 0
     while ((k*Qn + 1) % e) != 0:
@@ -138,7 +136,6 @@ def moduinverse(e, Qn):
 
 def bobscipher(pubkey):
     M = 12345678910
-    print(M)
     return pow(M, pubkey[0], pubkey[1])
 
 
@@ -183,10 +180,10 @@ def task3b():
 
 
     cipher = bobscipher(alicepukey)
-    print(cipher)
+    print("Cipher:", cipher)
 
     cipherprime = F(cipher, e)
-    print(cipherprime)
+    print("Cipher':", cipherprime)
 
     k = hashlib.sha256(bytes(cipherprime))
 
@@ -201,9 +198,6 @@ def task3b():
     print(decryptedc0)
 
 
-
-
-
     #signature part
     m1 = pow(1024, d, n)
     m2 = pow(4045, d, n)
@@ -216,5 +210,4 @@ def task3b():
 
     decryptm3 = pow(m3, e, n)
     print(decryptm3)
-
 
